@@ -45,13 +45,17 @@ public:
 
 	// USB mode (device/host)
 	inline void setUSBDeviceMode() { usb.CTRLA.bit.MODE = USB_CTRLA_MODE_DEVICE_Val; }
-#if (SAMD21 || SAML21 || SAMD51)
+#if (SAMD21 || SAML21 || SAMR34 || SAMD51)
 	inline void setUSBHostMode()   { usb.CTRLA.bit.MODE = USB_CTRLA_MODE_HOST_Val;   }
 #endif
 
 	inline void runInStandby()   { usb.CTRLA.bit.RUNSTDBY = 1; }
 	inline void noRunInStandby() { usb.CTRLA.bit.RUNSTDBY = 0; }
 	inline void wakeupHost()     { usb.CTRLB.bit.UPRSM = 1; }
+
+	// USB QoS
+	inline void setDataSensitiveQoS() { usb.QOSCTRL.bit.DQOS = 2; }
+	inline void setConfigSensitiveQoS() { usb.QOSCTRL.bit.CQOS = 2; }
 
 	// USB speed
 	inline void setFullSpeed()       { usb.CTRLB.bit.SPDCONF = USB_DEVICE_CTRLB_SPDCONF_FS_Val;   }

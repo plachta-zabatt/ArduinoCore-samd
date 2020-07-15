@@ -352,7 +352,7 @@ void USBDeviceClass::init()
 	// Enable USB clock
 #if (SAMD21 || SAMD11)
 	PM->APBBMASK.reg |= PM_APBBMASK_USB;
-#elif (SAML21 || SAMD51)
+#elif (SAML21 || SAMR34 || SAMD51)
 	MCLK->APBBMASK.reg |= MCLK_APBBMASK_USB;
 #else
 	#error "USBCore.cpp: Unsupported chip"
@@ -387,6 +387,8 @@ void USBDeviceClass::init()
 	usbd.reset();
 
 	usbd.calibrate();
+	usbd.setDataSensitiveQoS();
+	usbd.setConfigSensitiveQoS();
 	usbd.setUSBDeviceMode();
 	usbd.runInStandby();
 	usbd.setFullSpeed();
@@ -499,8 +501,10 @@ uint32_t EndPoints[] =
 #endif
 };
 
+#define EP_ARRAY_SIZE   (sizeof(EndPoints)/sizeof(EndPoints[0]))
+
 void USBDeviceClass::initEndpoints() {
-	for (uint8_t i = 1; i < sizeof(EndPoints) && EndPoints[i] != 0; i++) {
+	for (uint8_t i = 1; (i < EP_ARRAY_SIZE) && (EndPoints[i] != 0); i++) {
 		initEP(i, EndPoints[i]);
 	}
 }
