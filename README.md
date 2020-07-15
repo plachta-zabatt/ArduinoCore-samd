@@ -70,18 +70,16 @@ To add board support for our products, start Arduino and open the Preferences wi
 *This core is intended to be installed using Boards Manager (see below). To update from a*
 *previous version, click on Electronic Cats SAM D|L|C Boards in Boards Manager, then click Update.*
 
-**1.6.17 (February 22, 2018):**
-* Added SAM D51 (m4f) support to bootloader
-* Added Generic D11D14AS (20-pin SOIC) variant
-* Made PIN_USB_HOST_ENABLE optional. Readme updates for MT-D11 and Generic D11C14A
-* Fixed USB pad calibration values for L21 in bootloader and USB host mode
-* Improve accuracy of HS crystal (fixed off-by-one calculation)
-* fixed wrong location for call to mapResolution(), doc updates
-* Documentation updates
-* Merged in changes from upstream SAMD CORE 1.6.17 (not released yet)
-  * Improved ISR response time. Thanks @joverbee
-  * No fixed value for USB power current.
+## What's New - Beta Version (1.7.00-beta)
 
+**2.0.0-beta-b1 (Jul 14, 2020):**
+
+* Added support for SAMR34
+* Added support for Electronic Cats Boards
+* Remove Mattairtech Boards
+* Update with Arduino Core official fix
+* Remove menu for SPI, Serial and I2C interfaces
+* Thanks Mattairtech!
 
 ## What's New - Beta Version (1.6.18-beta)
 **Beta builds are now included in the main json. See Beta Builds section.**
@@ -116,6 +114,18 @@ To add board support for our products, start Arduino and open the Preferences wi
   * Wire: correct I2C frequency calculations, and allow variant to overide default pull up resistor rise time
 * Merged in changes from upstream SAMD CORE 1.6.17
   * UART's now support optional RTS and CTS pins defined in the variant.
+
+**1.6.17 (February 22, 2018):**
+* Added SAM D51 (m4f) support to bootloader
+* Added Generic D11D14AS (20-pin SOIC) variant
+* Made PIN_USB_HOST_ENABLE optional. Readme updates for MT-D11 and Generic D11C14A
+* Fixed USB pad calibration values for L21 in bootloader and USB host mode
+* Improve accuracy of HS crystal (fixed off-by-one calculation)
+* fixed wrong location for call to mapResolution(), doc updates
+* Documentation updates
+* Merged in changes from upstream SAMD CORE 1.6.17 (not released yet)
+  * Improved ISR response time. Thanks @joverbee
+  * No fixed value for USB power current.
 
 **1.6.17-beta-b0:**
 *Beta version 1.6.17-beta-b0 became release version 1.6.17. See above*
