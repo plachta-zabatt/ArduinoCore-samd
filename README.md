@@ -1,11 +1,70 @@
 # Electronic Cats SAM D|L|C Core for Arduino
 
+<a href="https://github.com/sponsors/ElectronicCats">
+  <img src="https://electroniccats.com/wp-content/uploads/2020/07/Badge_GHS.png" height="104" />
+</a>
+
 The Electronic Cats SAM D|L|C Core for Arduino is a fork from MattairTech/ArduinoCore-samd
 on GitHub, which will be used to maintain Arduino support for Electronic Cats boards.
 
-* Supports the SAMD51, SAMD21, SAMD11, SAML21, and SAMC21.
+#### Microcontroller supported
+
+- SAMD21
+- SAML21
+- SAMC21
+- SAMD11
+- SAMR34 or RAK4260
+- SAMD51
+
+#### SAMD (ARM Cortex-M0+) Boards by Electronic Cats
+
+* [Meow Meow](https://electroniccats.com/producto/meowmeow/)
+
+* [CatWAN USB-Stick](https://electroniccats.com/producto/catwan_usb-stick/)
+
+* [CatWAN Relay](https://electroniccats.com/producto/catwan-relay-board/)
+
+* [CatWAN Citizen](https://electroniccats.com)
+
+* [Bast Pro Mini M0](https://electroniccats.com)
+
 * Supports four clock sources (two crystals, internal oscillator, and USB calibrated).
-* USB CDC Bootloader with optional SDCard support. See [bootloaders/zero/README.md](https://github.com/mattairtech/ArduinoCore-samd/tree/master/bootloaders/zero/README.md).
+* USB CDC Bootloader with optional SDCard support. See [bootloaders/zero/README.md](https://github.com/ElectronicCats/ArduinoCore-samd/tree/master/bootloaders/zero/README.md).
+
+**Installation Instruction**
+
+By itself SAMD21 isn´t powerful, the suport with Arduino´s IDE is the special thing with. With only a clics pair, copies and pastes, you can add support for ARM cortex- M0+to your Arduino IDE... 
+
+**Install SAMD support**
+
+You must install the boards SAMD of Arduino(vertions 1.6.11 o later) 
+
+In the menú bar select tools --> boards --> Board Manager --> Arduino SAMD Boards 32 bit M0.
+
+In the search bar write  "SAMD" en then you can see the boards, do clic in install and wait to finish to install.
+
+![](https://cdn-learn.adafruit.com/assets/assets/000/028/792/original/adafruit_products_arduinosamd162.png)
+
+**Install "Electronic Cats" support**
+
+To add board support for our products, start Arduino and open the Preferences window (**File** > **Preferences**). Now copy and paste the following URL into the 'Additional Boards Manager URLs' input field:
+
+	https://electroniccats.github.io/Arduino_Boards_Index/package_electroniccats_index.json
+
+
+- If there is already an URL from another manufacturer in that field, click the button at the right end of the field. This will open an editing window allowing you to paste the above URL onto a new line.
+
+- Press the "OK" button.
+- Open the "boards manager" that is in tools --> Board --> board manager.
+- Now write "Electronic Cats" (without quotes) in the search bar.
+- Click in install, jus wait to finish to install and only close the window. 
+
+![](https://github.com/ElectronicCats/MeowMeow/wiki/assets/Paso1_IDE.png)
+
+- In tools --> Boards, scroll to down in the board´s list you can see the Electronic Cat´s boards.
+
+![](https://github.com/ElectronicCats/MeowMeow/wiki/assets/Paso2_IDE.png)
+
 
 
 *This core is intended to be installed using Boards Manager (see below). To update from a*
@@ -240,7 +299,7 @@ will reduce code space, increase performance, and also allow the D51 to make use
 
 This menu will appear with all microcontrollers. It is currently used to enable or disable including config.h,
 which contains several defines that are used primarily to reduce code space. config.h should be edited first.
-Please see [config.h](https://github.com/mattairtech/ArduinoCore-samd/tree/master/config.h) for documentation on the defines. The menu options are:
+Please see [config.h](https://github.com/ElectronicCats/ArduinoCore-samd/tree/master/config.h) for documentation on the defines. The menu options are:
 
 * config.h disabled
 * config.h enabled (mostly code size reductions)
@@ -622,7 +681,7 @@ that if the serial monitor is open, it will be necessary to close and re-open it
 When USB CDC is not enabled, Serial will instead refer to Serial1, which is the first UART.
 
 
-## Differences Between MattairTech and Arduino Cores (TODO)
+## Differences Between Electronic Cats and Arduino Cores
 
 * Communications interfaces are mostly unchanged, including USB
 * All pins have high drive strength enabled by default
@@ -638,58 +697,6 @@ When USB CDC is not enabled, Serial will instead refer to Serial1, which is the 
   So, the startup code calls pinMode(31, INPUT).
 * Todo: Table summarizing which core files are modified and by how much
 * Todo: List changes due to adding/changing features vs porting to new chip
-
-
-
-## Installation
-
-### Driver Installation
-
-#### Windows
-
-Prior to core version 1.6.6-mt1, sketches compiled with both CDC and HID USB code by default, thus requiring a CDC
-driver for the bootloader and a CDC-HID driver for sketches. Now that PluggableUSB is supported, sketches compile
-with only CDC code by default. Thus, only one driver is needed. Since HID and MIDI are currently supported (and
-MSD potentially in the future), driver installation will be required for each different combination of USB devices.
-There are currently four USB composite device combinations that include CDC as well as a CDC only device. Each
-supported combination has a unique USB VID:PID pair, and these are listed in the .inf file. Once the first device
-is installed (the CDC only device), future installations *might* be automatic, otherwise, you may direct the
-installer to the same .inf file. The drivers are signed and support both 32 and 64 bit versions of Windows XP(SP3),
-Vista, 7, 8, and 10. Note that the Windows 10 generic CDC drivers work as well.
-
-
-1. If you do not already have the SAM-BA bootloader installed, see below.
-2. Download https://www.mattairtech.com/software/MattairTech_CDC_Driver_Signed.zip and unzip into any folder.
-   Note that the Windows 10 generic CDC drivers work as well.
-3. Plug in the board. The LED should fade when the bootloader is running (or blink if the test sketch is running).
-4. Windows will detect the board. Point the installer to the folder from above to install the bootloader driver.
-5. If you don't intend on using Arduino, you can skip the rest of this list. See Using Bossac Standalone below.
-6. If you do not already have the test firmware installed (comes preinstalled), see Using Bossac Standalone below.
-7. Press the reset button to run the test firmware (if needed). The LED will blink.
-8. Windows will detect the board. Point the installer to the above folder to install the sketch driver (if needed).
-9. Continue with SAM D|L|C Core Installation below.
-
-#### Linux
-
-0. No driver installation is needed.
-1. On some distros, you may need to add your user to the same group as the port (ie: dialout) or set udev rules:
-   * See the file https://github.com/mattairtech/ArduinoCore-samd/tree/master/drivers/99-mattairtech-USB-CDC.rules.
-2. You MAY have to install and use Arduino as the root user in order to get reliable access to the serial port.
-   * This is true even when group permissions are set correctly, and it may fail after previously working.
-   * You can also create/modify a udev rule to set permissions on the port so *everyone* can read / write.
-3. If you are running modemmanager (ie: Ubuntu), disable it, or use the udev rules file above.
-4. Continue with SAM D|L|C Core Installation below.
-
-#### OS X
-
-*OS X support was added in version 1.6.7-beta-b0.*
-
-0. No driver installation is needed.
-1. Plug in the board. You may get a dialog box asking if you wish to open the “Network Preferences”:
-   * Click the "Network Preferences..." button, then click "Apply".
-   * The board will show up as “Not Configured”, but it will work fine.
-2. Continue with SAM D|L|C Core Installation below.
-
 
 ### Features
 
@@ -727,11 +734,11 @@ support for four clock sources, and firmware loading from a MicroSD card.
 
 #### Bootloader Installation Using the Arduino IDE
 
-1. If you do not already have the MattairTech SAM D|L|C Core installed, see SAM D|L|C Core Installation above.
+1. If you do not already have the Electronic Cats SAM D|L|C Core installed, see SAM D|L|C Core Installation above.
 2. Plug in the board. The bootloader must be running to (press reset twice within 500ms).
 3. Plug an Atmel ICE into USB, then connect it to the powered board. A green LED should light on the Atmel ICE.
 4. Click Tools->Programmer->Atmel ICE.
-5. Click Tools->Board->MattairTech Xeno Mini (or whichever board you are using).
+5. Click Tools->Board->Electronic Cats Board (or whichever board you are using).
 6. Click Tools->Microcontroller and select your MCU (if menu present).
 7. Click Tools->Burn Bootloader. Ignore any messages about not supporting shutdown or reset.
 8. Continue with driver installation above.
@@ -747,19 +754,19 @@ A running sketch *may* interfere with the bootloader installation process. Be su
 
 The bootloaders/zero/binaries directory contains the SAM-BA
 bootloaders built by the build_all_bootloaders.sh script from the
-'MattairTech SAM D|L|C Core for Arduino' Arduino core, which is
-available at https://github.com/mattairtech/ArduinoCore-samd.
+'Electronic Cats SAM D|L|C Core for Arduino' Arduino core, which is
+available at https://github.com/ElectronicCats/ArduinoCore-samd.
 Each board and chip combination has two bootloaders available:
 
 * SAM-BA interface only
-  * USB CDC only for all MattairTech boards
+  * USB CDC only for all Electronic Cats boards
   * Both USB CDC and UART for most Arduino boards
   * The Generic board variants minimize external pin usage
     * Only the SAM-BA interface pins are used (no crystal, LED, etc.)
   * Filename is: sam_ba_$(BOARD_ID)_$(MCU)
 
 * SAM-BA interface and SD Card interface
-  * USB CDC only for all Arduino and most MattairTech boards
+  * USB CDC only for all Arduino and most Electronic Cats boards
   * No SAM-BA interface for the D11 chips
   * All board variants define SDCARD_USE_PIN1 (except D11)
   * The Generic board variants use the LED
@@ -769,7 +776,7 @@ Each board and chip combination has two bootloaders available:
 
 ### Using Bossac Standalone
 
-**See [bootloaders/zero/README.md](https://github.com/mattairtech/ArduinoCore-samd/tree/master/bootloaders/zero/README.md) for information on using Bossac standalone.**
+**See [bootloaders/zero/README.md](https://github.com/ElectronicCats/ArduinoCore-samd/tree/master/bootloaders/zero/README.md) for information on using Bossac standalone.**
 
 
 ## New PinDescription Table
@@ -822,7 +829,7 @@ used, leaving the other pin for some number above 31.
 
 **See Board Variants above for more technical information on the PinDescription table.**
 
-**See [WVariant.h](https://github.com/mattairtech/ArduinoCore-samd/tree/master/cores/arduino/WVariant.h) for the definitions used in the table.**
+**See [WVariant.h](https://github.com/ElectronicCats/ArduinoCore-samd/tree/master/cores/arduino/WVariant.h) for the definitions used in the table.**
 
 
 ## Contributions
@@ -833,11 +840,14 @@ Contributions are always welcome. The preferred way to receive code cotribution 
 ## License and Credits
 
 This core has been developed by Arduino LLC in collaboration with Atmel.
-This fork developed by Justin Mattair of MattairTech LLC.
+This fork developed by Justin Mattair of Electronic Cats SAPI de CV.
+based in developed by Justin Mattair of MattairTech LLC.
+
 
 ```
   Copyright (c) 2015 Arduino LLC.  All right reserved.
   Copyright (c) 2017-2018 MattairTech LLC. All right reserved.
+   Copyright (c) 2018-2020 Electronic Cats SAPI de CV. All right reserved.
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
