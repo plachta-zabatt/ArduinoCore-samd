@@ -1,33 +1,29 @@
 {
-	"name": "MattairTech SAM D|L|C core for Arduino",
+	"name": "Electronic Cats SAMD Boards",
 	"architecture": "samd",
 	"version": "%%VERSION%%",
 	"category": "Contributed",
-	"url": "https://www.mattairtech.com/software/arduino/%%FILENAME%%",
+	"url": "https://github.com/ElectronicCats/Arduino_Boards_Index/raw/gh-pages/IDE_Board_Manager/%%FILENAME%%",
 	"archiveFileName": "%%FILENAME%%",
 	"checksum": "SHA-256:%%CHECKSUM%%",
+	"help": {
+		"online": "https://electroniccats.com/"
+    },
 	"size": "%%SIZE%%",
         "boards": [
-            {"name": "Xeno_Mini"},
-            {"name": "Xeno"},
-            {"name": "MT-D21E"},
-            {"name": "MT-D21E_revB"},
-            {"name": "MT-D11"},
-            {"name": "Generic_D11C14A"},
-            {"name": "Generic_D11D14AS"},
-            {"name": "arduino_zero"},
-            {"name": "arduino_mzero"}
+            {"name": "Meow Meow"},
+            {"name": "CatWAN USB-Stick"},
+            {"name": "CatWAN Relay board"},
+    		{"name": "CatWAN Citizen"},
+            {"name": "Bast Pro Mini M0"},
+            {"name": "Escornabot Makech"},
+            {"name":"CatWAN Tracker"}
 	],
 	"toolsDependencies": [
 	{
 		"packager": "arduino",
 		"name": "arm-none-eabi-gcc",
 		"version": "4.8.3-2014q1"
-	},
-	{
-		"packager": "MattairTech_Arduino",
-		"name": "bossac",
-		"version": "1.7.0-mattairtech-3"
 	},
 	{
 		"packager": "arduino",
@@ -40,14 +36,14 @@
 		"version": "4.5.0"
 	},
 	{
-		"packager": "MattairTech_Arduino",
-		"name": "CMSIS-Atmel",
-		"version": "1.0.0-mattairtech-2"
+		"packager": "electroniccats",
+		"name": "bossac",
+		"version": "1.0.0-electroniccats-1"
 	},
 	{
-		"packager": "arduino",
-		"name": "arduinoOTA",
-		"version": "1.2.0"
+		"packager": "electroniccats",
+		"name": "CMSIS-Atmel",
+		"version": "1.0.0-electroniccats-1"
 	}
 	]
 }

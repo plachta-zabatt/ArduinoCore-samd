@@ -17,17 +17,18 @@
 #  License along with this library; if not, write to the Free Software
 #  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-VERSION=`grep version= platform.txt | sed 's/version=//g'`
+VERSION=`grep version= ../platform.txt | sed 's/version=//g'`
 
+cd ../
 PWD=`pwd`
 FOLDERNAME=`basename $PWD`
 THIS_SCRIPT_NAME=`basename $0`
-FILENAME=MattairTech_SAM_DLC_Core_for_Arduino-$VERSION.tar.bz2
-
-rm -f $FILENAME
+FILENAME=electroniccats-samd-$VERSION.tar.bz2
 
 cd ..
-tar --transform "s|$FOLDERNAME|$FOLDERNAME-$VERSION|g"  --exclude=extras/** --exclude=.git* --exclude=.idea -cjf $FILENAME $FOLDERNAME
+rm -f $FILENAME
+pwd
+tar -jcvf $FILENAME $FOLDERNAME
 cd -
 
 mv ../$FILENAME .
@@ -39,4 +40,4 @@ cat extras/package_index.json.Release.template |
 sed "s/%%VERSION%%/${VERSION}/" |
 sed "s/%%FILENAME%%/${FILENAME}/" |
 sed "s/%%CHECKSUM%%/${CHKSUM}/" |
-sed "s/%%SIZE%%/${SIZE}/" > package_MattairTech_SAM_DLC_Core_for_Arduino-${VERSION}_index.json
+sed "s/%%SIZE%%/${SIZE}/" > package_electroniccats-samd-${VERSION}_index.json
