@@ -29,20 +29,21 @@ PWD=`pwd`
 FOLDERNAME=`basename $PWD`
 THIS_SCRIPT_NAME=`basename $0`
 FILENAME=electroniccats-samd-$VERSION.tar.bz2
-
+rm -rf $FILENAME
 cd ..
-rm -f $FILENAME
+cp -R $FOLDERNAME samd
 pwd
-gtar --exclude-vcs --exclude extras -jcvf $FILENAME $FOLDERNAME 
+gtar --exclude-vcs --exclude extras --exclude realese -jcvf $FILENAME samd 
+rm -rf samd
 cd -
+pwd
+mv ../$FILENAME realese/$FILENAME
 
-mv ../$FILENAME .
-
-CHKSUM=`shasum -a 256 $FILENAME | awk '{ print $1 }'`
-SIZE=`wc -c $FILENAME | awk '{ print $1 }'`
+CHKSUM=`shasum -a 256 realese/$FILENAME | awk '{ print $1 }'`
+SIZE=`wc -c realese/$FILENAME | awk '{ print $1 }'`
 
 cat extras/package_index.json.Release.template |
 sed "s/%%VERSION%%/${VERSION}/" |
 sed "s/%%FILENAME%%/${FILENAME}/" |
 sed "s/%%CHECKSUM%%/${CHKSUM}/" |
-sed "s/%%SIZE%%/${SIZE}/" > package_electroniccats-samd-${VERSION}_index.json
+sed "s/%%SIZE%%/${SIZE}/" > realese/package_electroniccats-samd-${VERSION}_index.json
