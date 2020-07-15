@@ -28,12 +28,12 @@ FILENAME=electroniccats-samd-$VERSION.tar.bz2
 cd ..
 rm -f $FILENAME
 pwd
-tar -jcvf $FILENAME $FOLDERNAME
+tar -jcvf --$FOLDERNAME/exclude=.git -f $FILENAME $FOLDERNAME 
 cd -
 
 mv ../$FILENAME .
 
-CHKSUM=`sha256sum $FILENAME | awk '{ print $1 }'`
+CHKSUM=`shasum -a 256 $FILENAME | awk '{ print $1 }'`
 SIZE=`wc -c $FILENAME | awk '{ print $1 }'`
 
 cat extras/package_index.json.Release.template |
