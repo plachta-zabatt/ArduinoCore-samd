@@ -16,6 +16,11 @@
 #  You should have received a copy of the GNU Lesser General Public
 #  License along with this library; if not, write to the Free Software
 #  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+#
+#
+# Modified for Mac by Andres Sabas @ Electronic Cats
+# For MacOS install gnu-tar 'brew install gnu-tar'
+#
 
 VERSION=`grep version= ../platform.txt | sed 's/version=//g'`
 
@@ -28,7 +33,7 @@ FILENAME=electroniccats-samd-$VERSION.tar.bz2
 cd ..
 rm -f $FILENAME
 pwd
-tar -jcvf --$FOLDERNAME/exclude=.git -f $FILENAME $FOLDERNAME 
+gtar --exclude-vcs --exclude extras -jcvf $FILENAME $FOLDERNAME 
 cd -
 
 mv ../$FILENAME .
