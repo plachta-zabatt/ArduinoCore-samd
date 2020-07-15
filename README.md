@@ -762,32 +762,11 @@ A running sketch *may* interfere with the bootloader installation process. Be su
 
 ### Bootloader Binaries
 
-The bootloaders/zero/binaries directory contains the SAM-BA
-bootloaders built by the build_all_bootloaders.sh script from the
-'Electronic Cats SAM D|L|C Core for Arduino' Arduino core, which is
+* Information on compiling and programming the bootloaders can be found in the [bootloaders repository](https://github.com/ElectronicCats/uf2-samd21).
+
+The [bootloaders UF2 SAMD21 repository](https://github.com/ElectronicCats/uf2-samd21) repository contains the UF"
+bootloaders from the 'Electronic Cats SAM D|L|C Core for Arduino' Arduino core, which is
 available at https://github.com/ElectronicCats/ArduinoCore-samd.
-Each board and chip combination has two bootloaders available:
-
-* SAM-BA interface only
-  * USB CDC only for all Electronic Cats boards
-  * Both USB CDC and UART for most Arduino boards
-  * The Generic board variants minimize external pin usage
-    * Only the SAM-BA interface pins are used (no crystal, LED, etc.)
-  * Filename is: sam_ba_$(BOARD_ID)_$(MCU)
-
-* SAM-BA interface and SD Card interface
-  * USB CDC only for all Arduino and most Electronic Cats boards
-  * No SAM-BA interface for the D11 chips
-  * All board variants define SDCARD_USE_PIN1 (except D11)
-  * The Generic board variants use the LED
-  * SDCARD_AUTORUN_DISABLED is defined
-  * Filename is: sam_ba_sdcard_$(BOARD_ID)_$(MCU)
-
-
-### Using Bossac Standalone
-
-**See [bootloaders/zero/README.md](https://github.com/ElectronicCats/ArduinoCore-samd/tree/master/bootloaders/zero/README.md) for information on using Bossac standalone.**
-
 
 ## New PinDescription Table
 
