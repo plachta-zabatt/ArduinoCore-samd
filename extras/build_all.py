@@ -42,7 +42,7 @@ def build_examples(variant):
     print((build_format + '| {:6} |').format('Library', 'Example', 'Result', 'Time'))
     print(build_separator)
     
-    fqbn = "adafruit:samd:adafruit_{}".format(variant)
+    fqbn = "electroniccats:samd:electroniccats{}".format(variant)
 
     for sketch in glob.iglob('libraries/**/*.ino', recursive=True):
         start_time = time.monotonic()
