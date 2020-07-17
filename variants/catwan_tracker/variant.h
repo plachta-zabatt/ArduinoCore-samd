@@ -162,6 +162,10 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 #define PIN_USB_DM          (24ul)
 #define PIN_USB_DP          (25ul)
 
+// I2S Interfaces
+// --------------
+#define I2S_INTERFACES_COUNT 0
+
 #ifdef __cplusplus
 }
 #endif

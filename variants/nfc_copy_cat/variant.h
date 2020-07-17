@@ -179,9 +179,13 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 /*
  * USB
  */
-#define PIN_USB_HOST_ENABLE_VALUE	-1
+#define PIN_USB_HOST_ENABLE_VALUE	0
 #define PIN_USB_DM          (24ul)
 #define PIN_USB_DP          (25ul)
+
+// I2S Interfaces
+// --------------
+#define I2S_INTERFACES_COUNT 0
 
 #ifdef __cplusplus
 }

@@ -177,14 +177,10 @@ static const uint8_t ATN = PIN_ATN;
  */
 #define SPI_INTERFACES_COUNT 0
 
-
-
-
 /*
  * Wire Interfaces
  */
 #define WIRE_INTERFACES_COUNT 0
-
 
 /*
  * USB - Define PIN_USB_HOST_ENABLE to assert the defined pin to
@@ -192,9 +188,13 @@ static const uint8_t ATN = PIN_ATN;
  */
 #define PIN_USB_DM                      (24ul)
 #define PIN_USB_DP                      (25ul)
+#define PIN_USB_HOST_ENABLE_VALUE	0
 
 
-#define PIN_USB_HOST_ENABLE_VALUE	HIGH
+// I2S Interfaces
+// --------------
+#define I2S_INTERFACES_COUNT 0
+
 
 #ifdef __cplusplus
 }
