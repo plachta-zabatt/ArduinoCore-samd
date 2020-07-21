@@ -126,6 +126,7 @@
 #define RE                   (21ul)
 #define DE                   (30ul)
 #define CC_1                 (33ul)
+#define SDI                  (34ul)
 
 #define RFM_RST              (25u)
 #define RFM_DIO0             (22u)
