@@ -88,9 +88,9 @@ extern "C"
 #define EXTERNAL_FLASH_USE_CS   SS
 
 /* Analog pins*/
-#define PIN_A1               (3ul)
+#define PIN_A0               (3ul)
 
-static const uint8_t A1  = PIN_A1;
+static const uint8_t A0  = PIN_A0;
 
 #define ADC_RESOLUTION		12
 
@@ -131,10 +131,6 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 #define PIN_USB_HOST_ENABLE 0
 #define PIN_USB_DM          (24ul)
 #define PIN_USB_DP          (25ul)
-
-// I2S Interfaces
-// --------------
-#define I2S_INTERFACES_COUNT 0
 
 #ifdef __cplusplus
 }

@@ -211,15 +211,31 @@ static const uint8_t ATN = PIN_ATN;
  * SPI Interfaces
  */
 
-#define SPI_INTERFACES_COUNT 0
+#define SPI_INTERFACES_COUNT 1
+
+#define PIN_SPI_MISO         (30u)
+#define PIN_SPI_MOSI         (8u)
+#define PIN_SPI_SCK          (9u)
+#define PIN_SPI_SS           (31u)
+
+#define PERIPH_SPI           sercom1
+#define PAD_SPI_TX           SPI_PAD_2_SCK_3
+#define PAD_SPI_RX           SERCOM_RX_PAD_0
+
+
+static const uint8_t SS	  = PIN_SPI_SS ;	// The SERCOM SS PAD is available on this pin but HW SS isn't used. Set here only for reference.
+static const uint8_t MOSI = PIN_SPI_MOSI ;
+static const uint8_t MISO = PIN_SPI_MISO ;
+static const uint8_t SCK  = PIN_SPI_SCK ;
+
 
 /*
  * Wire Interfaces
  */
 #define WIRE_INTERFACES_COUNT 1
 
-#define PIN_WIRE_SDA         (30u)
-#define PIN_WIRE_SCL         (31u)
+#define PIN_WIRE_SDA         (14u)
+#define PIN_WIRE_SCL         (15u)
 
 #define PERIPH_WIRE          sercom0
 #define WIRE_IT_HANDLER      SERCOM0_Handler
@@ -236,9 +252,6 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 #define PIN_USB_DP                      (25ul)
 //#define PIN_USB_HOST_ENABLE             (14ul)
 
-// I2S Interfaces
-// --------------
-#define I2S_INTERFACES_COUNT 0
 
 #define PIN_USB_HOST_ENABLE_VALUE	HIGH
 
