@@ -125,7 +125,13 @@
 
 #define RE                   (21ul)
 #define DE                   (30ul)
-#define cc_1                 (33ul)
+#define CC_1                 (33ul)
+
+#define RFM_RST              (25u)
+#define RFM_DIO0             (22u)
+#define RFM_DIO1             (32u)
+#define RFM_DIO2             (23u)
+#define RFM_DIO5             (24u)
 
 
 static const uint8_t A0  = PIN_A0;
