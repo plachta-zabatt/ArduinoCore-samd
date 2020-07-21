@@ -16,6 +16,8 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+#ifndef _VARIANT_ARDUINO_ZERO_
+#define _VARIANT_ARDUINO_ZERO_
 /* The definitions here need the MattairTech SAMD core >=1.6.8.
  * The format is different than the stock Arduino SAMD core,
  * which uses ARDUINO_SAMD_VARIANT_COMPLIANCE instead.
@@ -83,6 +85,7 @@
 #define NUM_DIGITAL_PINS     (28u)
 #define NUM_ANALOG_INPUTS    (6u)
 #define NUM_ANALOG_OUTPUTS   (0u)
+#define analogInputToDigitalPin(p)  ((p < 3u) ? (p) + PIN_A0 : -1)
 
 // Low-level pin register query macros
 // -----------------------------------
@@ -92,7 +95,7 @@
 #define portOutputRegister(port) (&(port->OUT.reg))
 #define portInputRegister(port)  (&(port->IN.reg))
 #define portModeRegister(port)   (&(port->DIR.reg))
-#define digitalPinHasPWM(P)      (g_APinDescription[P].ulPWMChannel != NOT_ON_PWM || g_APinDescription[P].ulTCChannel != NOT_ON_TIMER)
+#define digitalPinHasPWM(P)        ( g_APinDescription[P].ulPWMChannel != NOT_ON_PWM || g_APinDescription[P].ulTCChannel != NOT_ON_TIMER )
 #define digitalPinToInterrupt(P) (g_APinDescription[P].ulExtInt)
 
 /*
@@ -135,6 +138,9 @@ static const uint8_t A5  = PIN_A5;
 
 #define ADC_RESOLUTION    12
 
+/* Set default analog voltage reference */
+#define VARIANT_AR_DEFAULT	AR_DEFAULT
+
 /*
  * SPI Interfaces
  */
@@ -159,6 +165,7 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 
 // USB
 // ---
+#define PIN_USB_HOST_ENABLE_VALUE	0
 #define PIN_USB_DM          (17ul)
 #define PIN_USB_DP          (18ul)
 
