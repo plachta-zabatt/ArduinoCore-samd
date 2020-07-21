@@ -113,6 +113,16 @@
 #define PIN_LED     PIN_LED_13
 #define LED_BUILTIN PIN_LED
 
+#define CC_1                 (33ul)
+
+#define SDI                  (9ul)
+
+#define RFM_RST              (25u)
+#define RFM_DIO0             (22u)
+#define RFM_DIO1             (32u)
+#define RFM_DIO2             (23u)
+#define RFM_DIO5             (24u)
+
 /*
  * Analog pins
  */
@@ -121,26 +131,22 @@
 #define PIN_A2               (13ul)
 #define PIN_A3               (14ul)
 #define PIN_A4               (15ul)
-#define PIN_A5               (16ul)
 
-#define RE                   (21ul)
-#define DE                   (30ul)
-#define CC_1                 (33ul)
-#define SDI                  (34ul)
+#define PIN_A5               (21ul) //RS485 Default RE
+#define PIN_A6               (30ul) //RS485 Default DE
 
-#define RFM_RST              (25u)
-#define RFM_DIO0             (22u)
-#define RFM_DIO1             (32u)
-#define RFM_DIO2             (23u)
-#define RFM_DIO5             (24u)
-
+#define PIN_A7               (16ul) //Batt
 
 static const uint8_t A0  = PIN_A0;
 static const uint8_t A1  = PIN_A1;
 static const uint8_t A2  = PIN_A2;
 static const uint8_t A3  = PIN_A3;
 static const uint8_t A4  = PIN_A4;
+
 static const uint8_t A5  = PIN_A5;
+static const uint8_t A6  = PIN_A6;
+
+static const uint8_t A7  = PIN_A7;
  
 
 #define ADC_RESOLUTION    12
@@ -196,15 +202,15 @@ extern SERCOM sercom5;
 
 // Serial1    
 extern Uart Serial1;
-#define PIN_SERIAL1_RX (1ul)
-#define PIN_SERIAL1_TX (2ul)
+#define PIN_SERIAL1_RX (3ul)
+#define PIN_SERIAL1_TX (4ul)
 #define PAD_SERIAL1_TX (UART_TX_PAD_0)
 #define PAD_SERIAL1_RX (SERCOM_RX_PAD_1)
 
 // Serial2
 extern Uart Serial2;
-#define PIN_SERIAL2_RX (3ul)
-#define PIN_SERIAL2_TX (4ul)
+#define PIN_SERIAL2_RX (2ul)
+#define PIN_SERIAL2_TX (1ul)
 #define PAD_SERIAL2_TX (UART_TX_PAD_2)
 #define PAD_SERIAL2_RX (SERCOM_RX_PAD_0)
 
