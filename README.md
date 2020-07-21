@@ -1,6 +1,6 @@
 # Electronic Cats SAM D|L|C Core for Arduino
 
-![Build](https://github.com/ElectronicCats/ArduinoCore-samd/workflows/Build/badge.svg)
+[![Build Status](https://github.com/ElectronicCats/ArduinoCore-samd/workflows/Build/badge.svg)](https://github.com/ElectronicCats/ArduinoCore-samd/actions)
 
 <a href="https://github.com/sponsors/ElectronicCats">
   <img src="https://electroniccats.com/wp-content/uploads/2020/07/Badge_GHS.png" height="104" />
