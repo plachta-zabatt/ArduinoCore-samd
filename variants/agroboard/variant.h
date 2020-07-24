@@ -212,7 +212,7 @@ extern Uart Serial2;
 #define PIN_SERIAL2_RX (2ul)
 #define PIN_SERIAL2_TX (1ul)
 #define PAD_SERIAL2_TX (UART_TX_PAD_2)
-#define PAD_SERIAL2_RX (SERCOM_RX_PAD_0)
+#define PAD_SERIAL2_RX (SERCOM_RX_PAD_1)
 
 // Serial3
 extern Uart Serial3;
