@@ -22,15 +22,48 @@
 // The definitions here needs a SAMD core >=1.6.6
 #define MATTAIRTECH_ARDUINO_SAMD_VARIANT_COMPLIANCE 10618
 
+
+
 /*----------------------------------------------------------------------------
- *        Definitions
+ *        Clock Configuration
  *----------------------------------------------------------------------------*/
 
-/** Frequency of the board main oscillator */
-#define VARIANT_MAINOSC		(32768ul)
+/* Master clock frequency (also Fcpu frequency). With the D51, this can be
+ * either 120000000ul or 48000000ul (selected in the menu). See README.md.
+ */
+#define VARIANT_MCK                       (F_CPU)
 
-/** Master clock frequency */
-#define VARIANT_MCK			  (48000000ul)
+/* If CLOCKCONFIG_HS_CRYSTAL is defined, then HS_CRYSTAL_FREQUENCY_HERTZ
+ * must also be defined with the external crystal frequency in Hertz.
+ */
+#define HS_CRYSTAL_FREQUENCY_HERTZ      16000000UL
+
+/* If the PLL is used (CLOCKCONFIG_32768HZ_CRYSTAL, or CLOCKCONFIG_HS_CRYSTAL
+ * defined), then PLL_FRACTIONAL_ENABLED can be defined, which will result in
+ * a more accurate 48MHz output frequency at the expense of increased jitter.
+ */
+//#define PLL_FRACTIONAL_ENABLED
+
+/* If both PLL_FAST_STARTUP and CLOCKCONFIG_HS_CRYSTAL are defined, the crystal
+ * will be divided down to 1MHz - 2MHz, rather than 32KHz - 64KHz, before being
+ * multiplied by the PLL. This will result in a faster lock time for the PLL,
+ * however, it will also result in a less accurate PLL output frequency if the
+ * crystal is not divisible (without remainder) by 1MHz. In this case, define
+ * PLL_FRACTIONAL_ENABLED as well.
+ */
+
+
+
+//#define PLL_FAST_STARTUP
+
+/* The fine calibration value for DFLL open-loop mode is defined here.
+ * The coarse calibration value is loaded from NVM OTP (factory calibration values).
+ */
+#define NVM_SW_CALIB_DFLL48M_FINE_VAL     (512)
+
+/* Define CORTEX_M_CACHE_ENABLED to enable the Cortex M cache (D51 only).
+ */
+#define CORTEX_M_CACHE_ENABLED
 
 /*----------------------------------------------------------------------------
  *        Headers
@@ -64,7 +97,8 @@ extern "C"
 #define portOutputRegister(port)   ( &(port->OUT.reg) )
 #define portInputRegister(port)    ( &(port->IN.reg) )
 #define portModeRegister(port)     ( &(port->DIR.reg) )
-#define digitalPinHasPWM(P)        ( g_APinDescription[P].ulPWMChannel != NOT_ON_PWM || g_APinDescription[P].ulTCChannel != NOT_ON_TIMER )
+//#define digitalPinHasPWM(P)        ( g_APinDescription[P].ulPWMChannel != NOT_ON_PWM || g_APinDescription[P].ulTCChannel != NOT_ON_TIMER )
+#define digitalPinHasPWM(P)        ( (g_APinDescription[P].ulPinAttribute & PIN_ATTR_TIMER_PWM) == PIN_ATTR_TIMER_PWM )
 
 /*
  * digitalPinToTimer(..) is AVR-specific and is not defined for SAMD
@@ -138,7 +172,7 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 /*
  * USB
  */
-#define PIN_USB_HOST_ENABLE_VALUE -1
+#define PIN_USB_HOST_ENABLE_VALUE 0
 #define PIN_USB_DM          (24ul)
 #define PIN_USB_DP          (25ul)
 
