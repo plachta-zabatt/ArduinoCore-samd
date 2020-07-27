@@ -20,7 +20,7 @@
 #define _VARIANT_ARDUINO_ZERO_
 
 // The definitions here needs a SAMD core >=1.6.6
-#define ARDUINO_SAMD_VARIANT_COMPLIANCE 10606
+#define MATTAIRTECH_ARDUINO_SAMD_VARIANT_COMPLIANCE 10618
 
 /*----------------------------------------------------------------------------
  *        Definitions
@@ -102,6 +102,10 @@ static const uint8_t A4  = PIN_A4;
 
 #define ADC_RESOLUTION		12
 
+
+/* Set default analog voltage reference */
+#define VARIANT_AR_DEFAULT	AR_DEFAULT
+
 /*
  * Serial interfaces
  */
@@ -134,7 +138,7 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 /*
  * USB
  */
-#define PIN_USB_HOST_ENABLE -1
+#define PIN_USB_HOST_ENABLE_VALUE -1
 #define PIN_USB_DM          (24ul)
 #define PIN_USB_DP          (25ul)
 
