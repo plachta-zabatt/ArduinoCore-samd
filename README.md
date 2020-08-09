@@ -126,8 +126,8 @@ Otherwise, it jumps to application and starts execution from there. The LED will
 
 ### Special Libraries for this Core
 
-[ArduinoLowPower fork of Arduino](https://github.com/ElectronicCats/ArduinoLowPower)
-[RTCZero fork of Arduino](https://github.com/ElectronicCats/RTCZero)
+- [ArduinoLowPower fork of Arduino](https://github.com/ElectronicCats/ArduinoLowPower)
+- [RTCZero fork of Arduino](https://github.com/ElectronicCats/RTCZero)
 
 ### Bossac
 
