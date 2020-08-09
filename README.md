@@ -124,6 +124,10 @@ The bootloader can be started by:
 
 Otherwise, it jumps to application and starts execution from there. The LED will PWM fade during bootloader execution.
 
+### Special Libraries for this Core
+
+[ArduinoLowPower fork of Arduino](https://github.com/ElectronicCats/ArduinoLowPower)
+[RTCZero fork of Arduino](https://github.com/ElectronicCats/RTCZero)
 
 ### Bossac
 
