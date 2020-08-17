@@ -129,7 +129,7 @@ extern "C"
 #define PIN_LED              PIN_LED_13
 #define LED_BUILTIN          PIN_LED_13
 
-#define RFM_RST              (31u)
+#define RFM_RST              (33u)
 #define RFM_DIO0             (34u)
 #define RFM_DIO1             (35u)
 #define RFM_DIO2             (36u)
