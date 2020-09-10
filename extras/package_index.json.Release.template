@@ -14,6 +14,7 @@
             {"name": "Meow Meow"},
             {"name": "CatWAN USB-Stick"},
             {"name": "CatWAN Relay board"},
+			{"name": "BastWAN"},
     		{"name": "CatWAN Citizen"},
             {"name": "Bast Pro Mini M0"},
             {"name": "Escornabot Makech"},
