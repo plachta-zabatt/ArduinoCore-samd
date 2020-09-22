@@ -31,6 +31,7 @@ on GitHub, which will be used to maintain Arduino support for Electronic Cats bo
 * [Bast Pro Mini M0](https://electroniccats.com)
 
 * Supports four clock sources (two crystals, internal oscillator, and USB calibrated).
+* Supports the bootloaders UF2. Available at [bootloaders UF2 SAMD21 repository](https://github.com/ElectronicCats/uf2-samd21).
 * USB CDC Bootloader with optional SDCard support. See [bootloaders/zero/README.md](https://github.com/ElectronicCats/ArduinoCore-samd/tree/master/bootloaders/zero/README.md).
 
 **Installation Instruction**
