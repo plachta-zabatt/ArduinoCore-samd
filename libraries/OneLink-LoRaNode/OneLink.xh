@@ -1,0 +1,48 @@
+/* 
+  OneLink.h - Library for running a OneLink node
+  Created by the OneLink team Sept 2020
+*/
+
+#ifndef _ONELINK_H_
+#define _ONELINK_H_
+
+
+#include <Arduino.h>
+#include <SPI.h>
+#include <lorawan.h>
+#include "ArduinoLowPower.h"
+#include <ArduinoJson.h>
+#include "Config.h"
+#include "Struct.h"
+
+class OneLinkNodeClass
+{
+	public:
+		OneLinkNodeClass();
+		~OneLinkNodeClass();
+		bool init();
+		bool onelinkCycle();
+
+	private:		
+		bool initLorawan();
+		bool initSleep();
+		
+		bool join();
+		bool readSensors();
+		bool writeMessage();
+		bool readCommnds();
+		bool update();
+
+	private:
+		//ArduinoLowPowerClass _lp;
+		SensorReadings readings;
+		const int pinWakeup = 9;
+		const int pinLED_red = 0;
+		const int pinLED_green = 1;
+		const int pinLED_blue = 10;
+		// StaticJsonDocument<230> loraMsg;
+
+		
+};
+
+#endif

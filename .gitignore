@@ -9,3 +9,5 @@ bootloaders/*/build/
 
 
 Arduino_Programs/notes/
+
+.vs/
