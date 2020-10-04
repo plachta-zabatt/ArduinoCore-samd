@@ -1,0 +1,59 @@
+// Decode decodes an array of bytes into an object.
+//  - fPort contains the LoRaWAN fPort number
+//  - bytes is an array of bytes, e.g. [225, 230, 255, 0]
+// The function must return an object, e.g. {"temperature": 22.5}
+function bin2String(array) {
+  return String.fromCharCode.apply(String, array);
+}
+
+function bin2HexStr(arr)
+ 
+{
+    var str = "";
+    for(var i=0; i<arr.length; i++)
+    {
+
+       var tmp = arr[i].toString(16);
+       if(tmp.length == 1)
+       {
+           tmp = "0" + tmp;
+       }
+       tmp = "0x" + tmp;
+       if (i != arr.length - 1) {
+           tmp += ",";
+       }
+       str += tmp;
+    }
+    return str;
+}
+
+function Decode(fPort, bytes) 
+{
+  	var myObj = {"DecodeDataString":"", "DecodeDataHex":""};
+  	var tostring=bin2String(bytes);
+  	var tosHextring=bin2HexStr(bytes);
+  	myObj.DecodeDataString = tostring;
+  	myObj.DecodeDataHex = tosHextring;
+	return myObj;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Encode encodes the given object into an array of bytes.
+//  - fPort contains the LoRaWAN fPort number
+//  - obj is an object, e.g. {"temperature": 22.5}
+//  - variables contains the device variables e.g. {"calibration": "3.5"} (both the key / value are of type string)
+// The function must return an array of bytes, e.g. [225, 230, 255, 0]
+function Encode(fPort, obj, variables) {
+  return [];
+}

@@ -5,3 +5,7 @@ bootloaders/*/build/
 .DS_Store
 
 *.json
+
+
+
+Arduino_Programs/notes/
