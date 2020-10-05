@@ -19,6 +19,7 @@
 #define ARDUINO_MAIN
 #include "Arduino.h"
 #include "sam.h"
+#include <Assert.h>
 
 // Weak empty variant initialization function.
 // May be redefined by variant files.
@@ -53,12 +54,25 @@ int main( void )
   digitalWrite(RFM_RFSW_ON, HIGH);
   delay(1);
   #endif 
-  setup();
+  
+
+  //Testing
+  Serial.begin(115200);
+  delay(2000);
+
+  Serial.println("test test");
+
+
+  //setup();
 
   for (;;)
   {
-    loop();
-    if (serialEventRun) serialEventRun();
+    //loop();
+      Serial.println("test test");
+      delay(100);
+      Serial.println("about to assert");
+      assert(0);
+      if (serialEventRun) serialEventRun();
   }
 
   return 0;
