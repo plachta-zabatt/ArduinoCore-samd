@@ -19,7 +19,7 @@
 #define ARDUINO_MAIN
 #include "Arduino.h"
 #include "sam.h"
-#include <Assert.h>
+
 
 // Weak empty variant initialization function.
 // May be redefined by variant files.
@@ -34,6 +34,7 @@ extern "C" void __libc_init_array(void);
  */
 int main( void )
 {
+
   init();
 
   __libc_init_array();
@@ -41,6 +42,7 @@ int main( void )
   initVariant();
 
   delay(1);
+  SUPC->BOD33.reg |= SUPC_BOD33_ENABLE; //custom attempting to reduce power
 #if defined(USBCON) && !defined(USB_DISABLED)
   USBDevice.init();
   USBDevice.attach();
@@ -53,25 +55,15 @@ int main( void )
   digitalWrite(RFM_TCX_ON, HIGH);
   digitalWrite(RFM_RFSW_ON, HIGH);
   delay(1);
-  #endif 
-  
-
-  //Testing
-  Serial.begin(115200);
-  delay(2000);
-
-  Serial.println("test test");
+  #endif
 
 
-  //setup();
+  setup();
 
   for (;;)
   {
-    //loop();
-      Serial.println("test test");
-      delay(100);
-      Serial.println("about to assert");
-      assert(0);
+
+      loop();
       if (serialEventRun) serialEventRun();
   }
 
