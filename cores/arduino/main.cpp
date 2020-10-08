@@ -42,7 +42,7 @@ int main( void )
   initVariant();
 
   delay(1);
-  SUPC->BOD33.reg |= SUPC_BOD33_ENABLE; //custom attempting to reduce power
+  //SUPC->BOD33.reg |= SUPC_BOD33_ENABLE; //custom attempting to reduce power
 #if defined(USBCON) && !defined(USB_DISABLED)
   USBDevice.init();
   USBDevice.attach();
