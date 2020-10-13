@@ -35,6 +35,49 @@ extern "C" void __libc_init_array(void);
 int main( void )
 {
 
+  // pinMode(0, INPUT_PULLUP);
+  // pinMode(1, INPUT_PULLUP);
+  // pinMode(2, INPUT_PULLUP);
+  // pinMode(3, INPUT_PULLUP);
+  // pinMode(4, INPUT_PULLUP);
+  // pinMode(5, INPUT_PULLUP);
+  // pinMode(6, INPUT_PULLUP);
+  // pinMode(7, INPUT_PULLUP);
+  // pinMode(8, INPUT_PULLUP);
+  // pinMode(9, INPUT_PULLUP);
+  // pinMode(10, INPUT_PULLUP);
+  // pinMode(11, INPUT_PULLUP);
+  // pinMode(12, INPUT_PULLUP);
+  // pinMode(13, INPUT_PULLUP);
+  // pinMode(14, INPUT_PULLUP);
+  // pinMode(15, INPUT_PULLUP);
+  // pinMode(16, INPUT_PULLUP);
+  // pinMode(17, INPUT_PULLUP);
+  // pinMode(18, INPUT_PULLUP);
+  // pinMode(19, INPUT_PULLUP);
+  // pinMode(20, INPUT_PULLUP);
+  // pinMode(21, INPUT_PULLUP);
+  // pinMode(22, INPUT_PULLUP);
+  // pinMode(23, INPUT_PULLUP);
+  // pinMode(24, INPUT_PULLUP);
+  // pinMode(25, INPUT_PULLUP);
+  // pinMode(26, INPUT_PULLUP);
+  // pinMode(27, INPUT_PULLUP);
+  // pinMode(28, INPUT_PULLUP);
+  // pinMode(29, INPUT_PULLUP);
+  // pinMode(30, INPUT_PULLUP);
+  // pinMode(31, INPUT_PULLUP);
+  // pinMode(32, INPUT_PULLUP);
+  // pinMode(33, INPUT_PULLUP);
+  // pinMode(34, INPUT_PULLUP);
+  // pinMode(35, INPUT_PULLUP);
+  // pinMode(36, INPUT_PULLUP);
+  // pinMode(37, INPUT_PULLUP);
+  // pinMode(38, INPUT_PULLUP);
+  // pinMode(39, INPUT_PULLUP);
+  // pinMode(40, INPUT_PULLUP);
+  // pinMode(41, INPUT_PULLUP);
+
   init();
 
   __libc_init_array();
